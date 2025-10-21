@@ -1,181 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CONSPIR Survey</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONSPIR Survey Introduction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem 3rem;
+      max-width: 800px;
+      margin: 2rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #111827;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      color: #111827;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Welcome Page -->
-  <section id="welcome">
+  <div class="container">
     <h1>Welcome to the CONSPIR Survey</h1>
-    <p>Please download the CONSPIR plugin before starting the survey.</p>
-    <div class="center">
-      <a href="plugin.zip" download><button>Download Plugin</button></a>
-    </div>
-    <div class="center">
-      <button id="start-survey-btn">Start Survey</button>
-    </div>
-  </section>
 
-  <!-- Tweet Survey -->
-  <section id="tweets" class="hidden">
-    <h2>Tweet Evaluation</h2>
-    <div id="tweet-container"></div>
-    <form id="tweet-form">
-      <div class="question">
-        <label>Do you believe conspiratorial rhetoric is present?</label>
-        <select name="present" required>
-          <option value="">--Choose--</option>
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </div>
-      <div class="question slider-container">
-        <label for="confidence">Confidence:</label>
-        <input type="range" name="confidence" id="confidence" min="0" max="100" value="50">
-        <span id="confidence-value">50</span>%
-      </div>
-      <div class="question">
-        <label>Reasoning (optional):</label>
-        <textarea name="reasoning"></textarea>
-      </div>
-      <button type="submit">Next</button>
-    </form>
-  </section>
+    <p>
+      Thank you for taking part in this research study. This survey is part of the <strong>CONSPIR project</strong> —
+      an academic initiative at <strong>TU Darmstadt</strong> that investigates how people express and recognize
+      <strong>linguistic markers of conspiracy thinking</strong> across different online domains.
+    </p>
 
-  <!-- Reddit Survey -->
-  <section id="reddit" class="hidden">
-    <h2>Reddit Post Evaluation</h2>
-    <div id="reddit-container"></div>
-    <form id="reddit-form">
-      <div class="question">
-        <label>Do you believe conspiratorial rhetoric is present?</label>
-        <select name="present" required>
-          <option value="">--Choose--</option>
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </div>
-      <div class="question slider-container">
-        <label for="reddit-confidence">Confidence:</label>
-        <input type="range" name="confidence" id="reddit-confidence" min="0" max="100" value="50">
-        <span id="reddit-confidence-value">50</span>%
-      </div>
-      <div class="question">
-        <label>Reasoning (optional):</label>
-        <textarea name="reasoning"></textarea>
-      </div>
-      <button type="submit">Next</button>
-    </form>
-  </section>
+    <h2>What is CONSPIR?</h2>
+    <p>
+      The CONSPIR framework is designed to identify and analyze congnitive patterns that commonly lead to
+      conspiracy-related communication. It combines computational linguistics and social science insights
+      to better understand how conspiracy narratives are formed, spread, and perceived.
+    </p>
+    <p>
+      As part of this research, we are developing systems that can automatically detect certain
+      <em>conspiratorial traits</em> (such as excessive suspicion, contradictory reasoning, or claims of hidden intent)
+      in online text.
+    </p>
 
-  <!-- Final Survey -->
-  <section id="final" class="hidden">
-    <h2>Final Survey</h2>
-    <form id="final-form" class="likert">
-      <div class="question">
-        <label>This tool is useful:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q1" value="1" required> 1</label>
-          <label><input type="radio" name="q1" value="2"> 2</label>
-          <label><input type="radio" name="q1" value="3"> 3</label>
-          <label><input type="radio" name="q1" value="4"> 4</label>
-          <label><input type="radio" name="q1" value="5"> 5</label>
-          <label><input type="radio" name="q1" value="6"> 6</label>
-          <label><input type="radio" name="q1" value="7"> 7</label>
-        </div>
-      </div>
+    <h2>Purpose of This Survey</h2>
+    <p>
+      The purpose of this survey is to evaluate how useful the CONSPIR tool is in identifying and describing
+      conspiratorial traits in online text.
+    </p>
+    <p>We want to understand whether the tool’s outputs make sense to human readers, and how well its classifications
+      match your own intuition. We want to assess if the tool has an impact on belief formation.
+    </p>
 
-      <div class="question">
-        <label>I would use this tool regularly:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q2" value="1" required> 1</label>
-          <label><input type="radio" name="q2" value="2"> 2</label>
-          <label><input type="radio" name="q2" value="3"> 3</label>
-          <label><input type="radio" name="q2" value="4"> 4</label>
-          <label><input type="radio" name="q2" value="5"> 5</label>
-          <label><input type="radio" name="q2" value="6"> 6</label>
-          <label><input type="radio" name="q2" value="7"> 7</label>
-        </div>
-      </div>
+    <h2>How the Survey Works</h2>
+    <p>
+      You will be shown a series of short online posts (e.g., tweets or comments).
+      For each post, you will be asked to:
+    </p>
+    <ul>
+      <li>Indicate whether the post shows certain <strong>conspiratorial traits</strong></li>
+      <li>Rate your <strong>confidence</strong> in each judgment</li>
+      <li>Optionally, provide feedback if something seems unclear or ambiguous</li>
+    </ul>
+    <p>
+      The survey takes approximately <strong>30 minutes</strong> to complete.
+      There are no right or wrong answers — we are interested in your perspective as a reader.
+    </p>
 
-      <div class="question">
-        <label>I would recommend this tool:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q3" value="1" required> 1</label>
-          <label><input type="radio" name="q3" value="2"> 2</label>
-          <label><input type="radio" name="q3" value="3"> 3</label>
-          <label><input type="radio" name="q3" value="4"> 4</label>
-          <label><input type="radio" name="q3" value="5"> 5</label>
-          <label><input type="radio" name="q3" value="6"> 6</label>
-          <label><input type="radio" name="q3" value="7"> 7</label>
-        </div>
-      </div>
-
-      <div class="question">
-        <label>I trusted the tool's warnings:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q4" value="1" required> 1</label>
-          <label><input type="radio" name="q4" value="2"> 2</label>
-          <label><input type="radio" name="q4" value="3"> 3</label>
-          <label><input type="radio" name="q4" value="4"> 4</label>
-          <label><input type="radio" name="q4" value="5"> 5</label>
-          <label><input type="radio" name="q4" value="6"> 6</label>
-          <label><input type="radio" name="q4" value="7"> 7</label>
-        </div>
-      </div>
-
-      <div class="question">
-        <label>I found the tool informative:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q5" value="1" required> 1</label>
-          <label><input type="radio" name="q5" value="2"> 2</label>
-          <label><input type="radio" name="q5" value="3"> 3</label>
-          <label><input type="radio" name="q5" value="4"> 4</label>
-          <label><input type="radio" name="q5" value="5"> 5</label>
-          <label><input type="radio" name="q5" value="6"> 6</label>
-          <label><input type="radio" name="q5" value="7"> 7</label>
-        </div>
-      </div>
-
-      <div class="question">
-        <label>The tool made me more aware of conspiratorial rhetoric:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q6" value="1" required> 1</label>
-          <label><input type="radio" name="q6" value="2"> 2</label>
-          <label><input type="radio" name="q6" value="3"> 3</label>
-          <label><input type="radio" name="q6" value="4"> 4</label>
-          <label><input type="radio" name="q6" value="5"> 5</label>
-          <label><input type="radio" name="q6" value="6"> 6</label>
-          <label><input type="radio" name="q6" value="7"> 7</label>
-        </div>
-      </div>
-
-      <div class="question">
-        <label>The tool made many errors:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q7" value="1" required> 1</label>
-          <label><input type="radio" name="q7" value="2"> 2</label>
-          <label><input type="radio" name="q7" value="3"> 3</label>
-          <label><input type="radio" name="q7" value="4"> 4</label>
-          <label><input type="radio" name="q7" value="5"> 5</label>
-          <label><input type="radio" name="q7" value="6"> 6</label>
-          <label><input type="radio" name="q7" value="7"> 7</label>
-        </div>
-      </div>
-
-      <div class="question">
-        <label>Additional comments:</label>
-        <textarea name="comments"></textarea>
-      </div>
-
-      <button type="submit">Finish</button>
-    </form>
-  </section>
-
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script src="script.js"></script>
+    <a href="content.html" class="button">Begin the Survey</a>
+  </div>
 </body>
+
 </html>
