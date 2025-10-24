@@ -47,7 +47,6 @@ redditForm.addEventListener('submit', handleRedditSubmit);
 finalForm.addEventListener('submit', handleFinalSubmit);
 
 function startSurvey() {
-  hideSection(welcomeSection);
   showSection(tweetsSection);
   loadTweet();
 }
@@ -158,7 +157,6 @@ function resetSurvey() {
   hideSection(tweetsSection);
   hideSection(redditSection);
   hideSection(finalSection);
-  showSection(welcomeSection);
   
   tweetForm.reset();
   redditForm.reset();
