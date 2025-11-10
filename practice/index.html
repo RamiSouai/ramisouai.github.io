@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSPIR: Practice Run</title>
+    <script defer type="module" src="practice_data.mjs"></script>
+    <script defer type="module" src="practice.mjs"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <section>
+        <h1 id="question-header"> </h1>
+        <div class="question-container">
+            <div id="embedded-area"></div>
+            <div id="icon-container">
+                <div class="conpir-tooltip" id="conspir-tooltip"></div>
+            </div>
+        </div>
+
+        <form id="sumbit-question-form">
+            <div class="inputContainer">
+                <label for="conspiratorialYesOrNoInput"> Does this contain conspiratorial Content?</label>
+                <select id="conspiratorialYesOrNoInput" name="conspiratorialYesOrNoInput" required>
+                    <option value="">--Choose--</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="inputContainer">
+                <label for="confidence">Rate your confidence in your answer: </label>
+
+                <input id="confidence" oninput="this.nextElementSibling.value = this.value" min="1" max="100"
+                    name="confidence" type="range" value="50"> <output>50</output>
+
+                </input>
+            </div>
+
+            <div class="inputContainer">
+                <label for="reasoning">Reasoning (Optional): </label>
+                <textarea id="reasoning" name="reasoning" id="resoning-textarea"></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+
+</html>
