@@ -122,7 +122,7 @@ function buildContent (content) {
 
 function loadTweet (link) {
   const tweetInnerHtml = `<blockquote class="twitter-tweet">
-        <a href="${link}"></a>
+        <a href="${link}">Loading tweet...</a>
     </blockquote>`
   const embeddedArea = document.getElementById('embedded-area')
   embeddedArea.innerHTML = tweetInnerHtml

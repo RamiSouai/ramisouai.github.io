@@ -120,8 +120,8 @@ textarea {
   gap: 20px;
 }
 
-.icon-container { 
-  position: relative
+.icon-container {
+  position: relative;
 }
 
 .inputContainer {
@@ -165,6 +165,7 @@ textarea {
 .conpir-tooltip {
   display: none;
   /* bottom: 100%; */
+  pointer-events: none;
   right: 0;
   background: #1a1a1a;
   color: white;

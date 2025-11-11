@@ -54,9 +54,14 @@ export function showNoConspirIcon () {
 function highlightSpanWithTrait (sentenceIndex, traits) {
   const sentenceElement = document.getElementById(`sentence-${sentenceIndex}`)
   sentenceElement.className += ' highlighted'
-  sentenceElement.addEventListener('click', (element, event) => {
+  sentenceElement.addEventListener('mouseenter', (event) => {
     appendTraitsToToolTip(traits)
-    toggleToolTip(element.target)
+    toggleToolTip(event.target, event.pageX, event.pageY)
+  })
+  sentenceElement.addEventListener('mouseleave', (event) => {
+    conspirHideTooltip()
+    // appendTraitsToToolTip(traits)
+    // toggleToolTip(event.target, event.pageX, event.pageY)
   })
 }
 
@@ -93,7 +98,7 @@ function appendTraitsToToolTip (traits) {
 }
 
 var currentToolTipParent = undefined
-function toggleToolTip (target) {
+function toggleToolTip (target, x, y) {
   if (
     tooltip.style.display.toString() == 'block' &&
     target === currentToolTipParent
@@ -102,6 +107,10 @@ function toggleToolTip (target) {
   } else {
     tooltip.style.display = 'block'
     currentToolTipParent = target
+    if(x && y) {
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    }
   }
 }
 

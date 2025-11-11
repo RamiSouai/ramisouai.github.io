@@ -2,20 +2,20 @@ import { CONTENT_TYPES, loadQuestion } from '../common.mjs'
 import { articleQuestionsLength, Questions, redditQuestionsLength, twitterQuestionsLength } from './survey_data.mjs'
 
 const State = {
-  currentQuestionIndex: 0
+  currentQuestionIndex: 22
 }
 
 function setHeader (questionType) {
   var headerContent
   switch (questionType) {
     case CONTENT_TYPES.TWITTER:
-      var headerContent = `Tweet ${State.currentQuestionIndex + 1}/${twitterQuestionsLength}`
+      headerContent = `Tweet ${State.currentQuestionIndex + 1}/${twitterQuestionsLength}`
       break
     case CONTENT_TYPES.REDDIT:
-      var headerContent = `Reddit ${State.currentQuestionIndex + 1 - twitterQuestionsLength}/${redditQuestionsLength}`
+      headerContent = `Reddit ${State.currentQuestionIndex + 1 - twitterQuestionsLength}/${redditQuestionsLength}`
       break
     case CONTENT_TYPES.ARTICLE:
-      var headerContent = `Article ${State.currentQuestionIndex + 1 - twitterQuestionsLength - redditQuestionsLength}/${articleQuestionsLength}`
+      headerContent = `Article ${State.currentQuestionIndex + 1 - twitterQuestionsLength - redditQuestionsLength}/${articleQuestionsLength}`
       break
     default:
       break
