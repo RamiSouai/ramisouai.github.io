@@ -26,7 +26,8 @@ function proceedToNextQuestion () {
 }
 
 function finish () {
-    console.log('finish not yet implemented')
+  alert('Practice round done! You will now proceed to the survey')
+  window.location.href = "/survey"
 }
 
 loadPracticeQuestion()

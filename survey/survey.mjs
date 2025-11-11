@@ -2,7 +2,7 @@ import { CONTENT_TYPES, loadQuestion } from '../common.mjs'
 import { articleQuestionsLength, Questions, redditQuestionsLength, twitterQuestionsLength } from './survey_data.mjs'
 
 const State = {
-  currentQuestionIndex: 22
+  currentQuestionIndex: 0
 }
 
 function setHeader (questionType) {

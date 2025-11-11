@@ -58,6 +58,9 @@ export function loadQuestion (question, onFormSubmitCallback) {
 }
 
 export function persistData (formData) {
+  if(window.location.href.includes('practice')) {
+    return
+  }
   const dbUrl = `https://script.google.com/macros/s/AKfycby9nJj_Tgl5DrfCuKoV5Y4tSXNvbqxtZtq_V-CL0kaHb-gxu8RTfOP2y5q-UeLLFueN/exec`
   fetch(dbUrl, {
     redirect: 'follow',
