@@ -1,10 +1,12 @@
 import { persistData } from "../common.mjs"
 
 const finalForm = document.getElementById('final-form')
-finalForm.addEventListener('submit', event => {
-  event.preventDefault()
-  handleSubmitFinalForm()
-})
+if(finalForm) {
+  finalForm.addEventListener('submit', event => {
+    event.preventDefault()
+    handleSubmitFinalForm()
+  });
+}
 
 
 function getFormData () {
@@ -19,4 +21,5 @@ function getFormData () {
 function handleSubmitFinalForm () {
   const formData = getFormData()
   persistData(formData)
+  window.location.href = "/thankyou"
 }

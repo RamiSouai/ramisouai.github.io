@@ -5,113 +5,135 @@ const twitterQuestions = [
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/MattWalshBlog/status/1982812800830275881',
+    withConspir: true,
     traits: [CONSPIR.CONTRADICTORY]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/RupertLowe10/status/1981778787218886869',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/TheBritLad/status/1982740419952967992',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.PERSECUTED]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/covie_93/status/1982496250378559947',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/Logically_JC/status/1982752965875429496',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.PERSECUTED, CONSPIR.RANDOMNESS]
   },
-  {
-    type: CONTENT_TYPES.TWITTER,
-    link: 'https://twitter.com/mmpadellan/status/1982891699912556924',
-    traits: [CONSPIR.CONTRADICTORY]
-  },
+  // {
+  //   type: CONTENT_TYPES.TWITTER,
+  //   link: 'https://twitter.com/mmpadellan/status/1982891699912556924',
+  //   withConspir: true,
+  //   traits: [CONSPIR.CONTRADICTORY]
+  // },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/AndrewZywiecMD/status/1982856754233819312',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/3dom13/status/1982738482045878705',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.OVERRIDING, CONSPIR.NEFARIOUS, CONSPIR.IMMUNE]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/lauramatsue/status/1980016504033989096',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/3dom13/status/1935878099993767958',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.NEFARIOUS]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/SCMountainGoat/status/1982974382147547550',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/BrianEastwood_X/status/1982494103767249011',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.NEFARIOUS, CONSPIR.RANDOMNESS]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/Davis_Tim42/status/1967738705776726090',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/BrianEastwood_X/status/1982519467029725570',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.NEFARIOUS]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/Davis_Tim42/status/1968629933359427694',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/EndWokeness/status/1983018264205639806',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.RANDOMNESS]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/Apolitical3678/status/1958529829281607751',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/PeterSweden7/status/1958628268254666955',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.OVERRIDING, CONSPIR.PERSECUTED]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/realDonaldTrump/status/1923432648103333919',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/AshFarms/status/1970568562340241795',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: true,
+    traits: [CONSPIR.PERSECUTED]
   },
   {
     type: CONTENT_TYPES.TWITTER,
     link: 'https://twitter.com/plzbepatient/status/1970871227339432408',
-    traits: [CONSPIR.CONTRADICTORY]
+    withConspir: false,
+    traits: []
   }
 ]
 
 const redditQuestions = [
   {
     type: CONTENT_TYPES.REDDIT,
+    withConspir: true,
     content: [
       `We already know our phones are constantly listening. `,
       `That much is obvious. `,
@@ -130,12 +152,29 @@ const redditQuestions = [
     analysis: [
       {
         sentenceIndex: 0,
-        traits: [CONSPIR.CONTRADICTORY]
-      }
+        traits: [CONSPIR.NEFARIOUS]
+      },
+      {
+        sentenceIndex: 3,
+        traits: [CONSPIR.RANDOMNESS]
+      },
+      {
+        sentenceIndex: 6,
+        traits: [CONSPIR.RANDOMNESS]
+      },
+      {
+        sentenceIndex: 8,
+        traits: [CONSPIR.NEFARIOUS]
+      },
+      {
+        sentenceIndex:9,
+        traits: [CONSPIR.IMMUNE]
+      },
     ]
   },
   {
     type: CONTENT_TYPES.REDDIT,
+    withConspir: false,
     content: [
       `Americans have been paying for it since. `,
       `Living has gotten difficult for a vast majority of millions of Americans under this shame of a Presidency. `,
@@ -168,6 +207,7 @@ const redditQuestions = [
   },
   {
     type: CONTENT_TYPES.REDDIT,
+    withConspir: true,
     content: [
       `I truly feel either the election will be rigged and we will get Kamala for four years, which will absolutely tank the country. `,
       `Or Trump will win and it will be four years of chaos, mayhem antifa, riots, BLM and anything else the Obama team can come up with to absolutely destroy this country to prove Trump is the bad guy.`
@@ -178,12 +218,17 @@ const redditQuestions = [
     analysis: [
       {
         sentenceIndex: 0,
-        traits: [CONSPIR.CONTRADICTORY]
+        traits: [CONSPIR.PERSECUTED, CONSPIR.NEFARIOUS]
+      },
+      {
+        sentenceIndex: 1,
+        traits: [CONSPIR.PERSECUTED, CONSPIR.NEFARIOUS]
       }
     ]
   },
   {
     type: CONTENT_TYPES.REDDIT,
+    withConspir: false,
     content: [
       `Her syntax is completely unnatural to her normal impromptu tone. Her rhythm is memorized script.`,
       `I think these folks forget we see clips of all of their rallies. We know what their memorization tone sounds like.`,
@@ -204,6 +249,7 @@ const redditQuestions = [
 const articleQuestions = [
   {
     type: CONTENT_TYPES.ARTICLE,
+    withConspir: true,
     source: 'www.globalresearch.ca',
     author: 'Manlio Dinucci',
     title: 'War and Business. Peace Negotiations are “A Waste Of Time”.',
@@ -224,37 +270,30 @@ const articleQuestions = [
       `It is evident that these Italian-manufactured kamikaze drones will be utilised by the Israeli army in attacks against Palestinians in Gaza, as well as in other operations primarily conducted in Libya, Yemen, and other regions. `,
       `Trump has imposed sanctions on Russian oil companies, representing the most stringent measures yet taken by the US against the Russian energy sector. `,
       `It is evident that these sanctions are favourable to large US oil and gas companies. `,
-      `The European Union is participating in this operation, which has decided to completely block the import of Russian natural gas in three stages: from 1 January 2026, it will be forbidden to sign new contracts; short-term agreements already in place must end by 17 June 2026; and long-term agreements by 31 December 2027. `,
-      `It should be noted that the aforementioned proposals have met with opposition from the countries of Hungary and Slovakia. `,
-      `Concurrently, Italy’s Edison entered into an agreement with Shell, securing the procurement of US liquefied natural gas (LNG) for a duration of 15 years. `,
-      `In consideration of the marked disparity between the price of gas in the US and that of gas in Russia, it is evident that consumer gas prices for households in Italy are rising. `,
-      `The United States and the State of Israel are contemplating a plan to divide the Gaza Strip into two separate zones: one to be controlled by Israel, the other formally by Hamas pending its “disarmament”. `,
-      `This was announced at a press conference in Israel by US Vice President Vance and Trump’s son-in-law, Jared Kushner. `,
-      `The plan is to immediately start “reconstruction” in the Israeli-controlled area, according to Trump’s plan to transform Gaza into a luxurious “Riviera of the Middle East”. `,
-      `The Palestinian area, de facto controlled by Israel, would remain in its current situation: the Palestinian population would be locked there in a scenario of destruction and deprivation that would continue the genocide. `,
-      `President Trump confirmed that Australia will obtain nuclear-powered submarines from the United States and the United Kingdom, indicating a strategic focus on deterring China and Russia. `,
-      `Concurrently, he signed an agreement on rare earth minerals with the Australian Prime Minister at the White House. `,
-      `The AUKUS submarine agreement between Australia, the United Kingdom and the United States could cost Australia up to $235 billion over the next 30 years. `,
-      `The governments of the United States and Australia have announced their intention to invest in excess of $3 billion in critical minerals projects over the forthcoming six-month period. `,
-      `The recoverable resources in these projects are estimated to be worth $53 billion. `,
-      `The US Department of War expressed its intention to invest in the construction of an advanced gallium refinery with a capacity of 100 metric tonnes per year in Western Australia. `,
-      `Gallium has several military applications, primarily in high-tech electronics such as radar and satellite communications. `,
-      `The material is also used as an alloy to stabilise nuclear weapons components and in aluminium-gallium alloys for the production of hydrogen bombs for thermonuclear warfare.`
     ],
     link: 'https://www.globalresearch.ca/war-and-business-peace-negotiations-are-a-waste-of-time-manlio-dinucci/5903911',
     analysis: [
       {
         sentenceIndex: 0,
-        traits: [CONSPIR.CONTRADICTORY]
+        traits: [CONSPIR.NEFARIOUS]
       },
       {
         sentenceIndex: 7,
-        traits: [CONSPIR.OVERRIDING, CONSPIR.RANDOMNESS]
+        traits: [CONSPIR.NEFARIOUS]
+      },
+      {
+        sentenceIndex: 13,
+        traits: [CONSPIR.IMMUNE, CONSPIR.RANDOMNESS]
+      },
+      {
+        sentenceIndex: 15,
+        traits: [CONSPIR.IMMUNE]
       }
     ]
   },
   {
     type: CONTENT_TYPES.ARTICLE,
+    withConspir: false,
     source: 'www.cnn.com',
     author: 'Stephen Collinson',
     title:

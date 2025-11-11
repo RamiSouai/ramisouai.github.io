@@ -45,6 +45,12 @@ export function conspirHideTooltip () {
   currentToolTipParent = undefined
 }
 
+export function showNoConspirIcon () {
+  hideConspirIcon()
+  iconContainer.appendChild(noConspirIcon)
+  iconContainer.appendChild(noConspirToolTip)
+}
+
 function highlightSpanWithTrait (sentenceIndex, traits) {
   const sentenceElement = document.getElementById(`sentence-${sentenceIndex}`)
   sentenceElement.className += ' highlighted'
@@ -72,6 +78,7 @@ const CONPIR_TRAITS = {
 function setConspirIcon () {
   iconContainer.removeChild(spinner)
   iconContainer.appendChild(icon)
+  iconContainer.appendChild(tooltip)
 }
 
 function appendTraitsToToolTip (traits) {
@@ -100,29 +107,34 @@ function toggleToolTip (target) {
 
 const iconContainer = document.getElementById('icon-container')
 
-const tooltip = document.getElementById('conspir-tooltip')
+const tooltip = document.createElement('div')
+tooltip.className = 'conpir-tooltip'
 
 const spinner = document.createElement('div')
 spinner.className = 'conpir-loading-spinner'
 
 const icon = document.createElement('span')
-icon.className = 'conpir-warning-icon'
+icon.className = 'conpir-icon'
 icon.setAttribute('title', 'Show CONPIR traits')
 icon.textContent = '⚠️'
-icon.addEventListener('click', event => {
+icon.addEventListener('mouseover', event => {
   toggleToolTip(event.target)
 })
+icon.addEventListener('mouseout', event => {
+  conspirHideTooltip()
+})
+
+const noConspirIcon = document.createElement('span')
+noConspirIcon.className = 'conspir-icon'
+noConspirIcon.textContent = '✅'
+
+const noConspirToolTip = document.createElement('div')
+noConspirToolTip.className = 'conpir-tooltip'
+noConspirToolTip.innerHTML =
+  '<div class="conpir-tooltip-header">CONSPIR Plug-in disabled for this question</div>'
 
 function hideConspirIcon () {
-  if (iconContainer.hasChildNodes()) {
-    iconContainer.childNodes.forEach(child => {
-      if (child == icon) {
-        iconContainer.removeChild(icon)
-      } else if (child == spinner) {
-        iconContainer.removeChild(spinner)
-      }
-    })
-  }
+  iconContainer.innerHTML = ''
 }
 
 function createLoadingSpinner () {

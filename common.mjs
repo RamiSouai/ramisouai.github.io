@@ -1,4 +1,10 @@
-import { conspirHideTooltip, conspirHandleTweet, conspirHandleReddit, conspirHandleArticle } from './conspir.mjs'
+import {
+  conspirHideTooltip,
+  conspirHandleTweet,
+  conspirHandleReddit,
+  conspirHandleArticle,
+  showNoConspirIcon
+} from './conspir.mjs'
 
 export const LINE_BREAK_TOKEN = `$LINEBREAK`
 
@@ -13,7 +19,11 @@ export function loadQuestion (question, onFormSubmitCallback) {
   switch (question.type) {
     case CONTENT_TYPES.TWITTER:
       loadTweet(question.link)
-      conspirHandleTweet(question.traits)
+      if (question.withConspir !== false) {
+        conspirHandleTweet(question.traits)
+      } else {
+        showNoConspirIcon()
+      }
       break
     case CONTENT_TYPES.REDDIT:
       loadRedditPost(
@@ -22,7 +32,11 @@ export function loadQuestion (question, onFormSubmitCallback) {
         question.subreddit,
         question.postTitle
       )
-      conspirHandleReddit(question.analysis)
+      if (question.withConspir !== false) {
+        conspirHandleReddit(question.analysis)
+      } else {
+        showNoConspirIcon()
+      }
       break
     case CONTENT_TYPES.ARTICLE:
       loadArticle(
@@ -32,7 +46,11 @@ export function loadQuestion (question, onFormSubmitCallback) {
         question.content,
         question.link
       )
-      conspirHandleArticle(question.analysis)
+      if (question.withConspir !== false) {
+        conspirHandleArticle(question.analysis)
+      } else {
+        showNoConspirIcon()
+      }
       break
     default:
       break
@@ -151,7 +169,7 @@ const form = document.getElementById('sumbit-question-form')
 var USER_ID = ''
 
 initUser()
-if(form){
+if (form) {
   form.addEventListener('submit', event => {
     event.preventDefault()
     handleQuestionFormSumbit()
