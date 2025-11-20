@@ -127,7 +127,7 @@ icon.className = 'conpir-icon'
 icon.setAttribute('title', 'Show CONPIR traits')
 icon.textContent = '⚠️'
 icon.addEventListener('mouseover', event => {
-  toggleToolTip(event.target)
+  toggleToolTip(event.target, event.pageX, event.pageY)
 })
 icon.addEventListener('mouseout', event => {
   conspirHideTooltip()
